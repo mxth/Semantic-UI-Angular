@@ -1,9 +1,12 @@
+///<reference path="../../../typings/jasmine/jasmine.d.ts"/>
+///<reference path="../../../typings/angularjs/angular-mocks.d.ts"/>
+
 describe('Semantic-UI: Components - smRating', function() {
   'use strict';
 
   var $rootScope, $compile, element;
 
-  beforeEach(module('semantic.ui.components.rating'));
+  beforeEach(angular.mock.module('semantic.ui.components.rating'));
 
   beforeEach(inject(function(_$rootScope_, _$compile_) {
     $rootScope = _$rootScope_.$new();
@@ -30,11 +33,11 @@ describe('Semantic-UI: Components - smRating', function() {
     return state;
   }
 
-  function getStateActive(classActive) {
+  function getStateActive(classActive?) {
     return getState(classActive, 'active');
   }
 
-  function getStateHover(classHover, classHoverParent) {
+  function getStateHover(classHover?, classHoverParent?) {
     var classDefault = 'selected';
     return getState(classHover, classDefault).concat([element.hasClass(classHoverParent || classDefault)]);
   }
